@@ -40,9 +40,3 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: view
-    step:
-      materialized: table
-    intermediate:
-      materialized: table
-    basics:
-      materialized: table
