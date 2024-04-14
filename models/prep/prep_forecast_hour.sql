@@ -1,3 +1,5 @@
+{{ config(database='climate_mart', schema='public') }}
+
 WITH forecast_hour_data AS (
     SELECT * 
     FROM {{ref('staging_forecast_hour')}}
