@@ -12,10 +12,10 @@ adding_features AS (
         SELECT 
             *
             ,CONCAT('&nbsp;&nbsp;&nbsp;&nbsp;![weather_icon](',condition_icon,'?width=35)') AS condition_icon_md
-            ,CASE WHEN moonrise = 'No moonrise' THEN null ELSE moonrise END moonrise_n
-            ,CASE WHEN moonset = 'No moonset' THEN null ELSE moonset END moonset_n
-            ,CASE WHEN sunrise = 'No sunrise' THEN null ELSE sunrise END sunrise_n
-            ,CASE WHEN sunset = 'No sunset' THEN null ELSE sunset END sunset_n
+            ,(CASE WHEN moonrise = 'No moonrise' THEN null ELSE moonrise END)::TIME AS moonrise_n
+            ,(CASE WHEN moonset = 'No moonset' THEN null ELSE moonset END)::TIME AS moonset_n
+            ,(CASE WHEN sunrise = 'No sunrise' THEN null ELSE sunrise END)::TIME AS sunrise_n
+            ,(CASE WHEN sunset = 'No sunset' THEN null ELSE sunset END)::TIME AS sunset_n
         FROM joining_day_location
         LEFT JOIN pressure_mb_daily
         USING(date, city,region,country)
