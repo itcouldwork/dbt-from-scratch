@@ -82,7 +82,7 @@ aggregations_adding_features AS (
                             'Moderate or heavy sleet', 'Blizzard', 'Blowing snow', 'Patchy snow possible', 
                             'Moderate or heavy showers of ice pellets', 'Patchy light snow with thunder',
                             'Patchy sleet possible', 'Ice pellets') 
-                            THEN 1 ELSE 0 END) AS snowy_day
+                            THEN 1 ELSE 0 END) AS snowy_days
     FROM filtering_features
     GROUP BY (year_and_week, week_of_year, year, city, region, country, lat, lon, timezone_id)
     ORDER BY city
